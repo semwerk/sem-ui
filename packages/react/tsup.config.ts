@@ -3,7 +3,9 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['esm'],
-  dts: true,
+  dts: {
+    resolve: true,
+  },
   sourcemap: true,
   clean: true,
   external: ['react', 'react-dom'],
@@ -17,4 +19,6 @@ export default defineConfig({
   },
   // Bundle CSS modules
   injectStyle: false,
+  // Disable incremental to avoid conflicts
+  tsconfig: './tsconfig.json',
 });
