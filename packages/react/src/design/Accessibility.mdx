@@ -1,0 +1,160 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Accessibility" />
+
+# Accessibility Guidelines
+
+Sem design system is built with accessibility as a core principle.
+
+## Color Contrast
+
+All color combinations meet WCAG 2.1 Level AA standards (4.5:1 for normal text, 3:1 for large text).
+
+### Semantic Color Contrast Ratios
+
+| Combination | Ratio | Status |
+|-------------|-------|--------|
+| Default text on default background | 16.1:1 | AAA |
+| Muted text on default background | 7.0:1 | AA |
+| Success on success background | 4.8:1 | AA |
+| Error on error background | 5.1:1 | AA |
+| Warning on warning background | 4.6:1 | AA |
+| Info on info background | 4.9:1 | AA |
+
+## Focus Indicators
+
+All interactive elements must have visible focus indicators.
+
+<div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+  <button style={{
+    padding: 'var(--space-3) var(--space-6)',
+    borderRadius: 'var(--radius-md)',
+    border: '2px solid transparent',
+    background: '#3b82f6',
+    color: '#ffffff',
+    cursor: 'pointer',
+  }}
+  onFocus={(e) => {
+    e.currentTarget.style.outline = '2px solid #3b82f6';
+    e.currentTarget.style.outlineOffset = '2px';
+  }}
+  onBlur={(e) => {
+    e.currentTarget.style.outline = 'none';
+  }}>
+    Click or Tab to focus
+  </button>
+</div>
+
+### Focus Ring Standards
+
+```css
+/* Standard focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: 2px;
+}
+
+/* Custom focus for primary buttons */
+button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+```
+
+## Motion & Reduced Motion
+
+Respect user preferences for reduced motion:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+## Semantic HTML
+
+Use appropriate semantic elements:
+
+- `<button>` for actions
+- `<a>` for navigation
+- `<input>` with proper `type` attributes
+- `<label>` associated with form controls
+- Heading hierarchy (`h1` through `h6`)
+
+## ARIA Attributes
+
+### Required Patterns
+
+```tsx
+// Button with loading state
+<button aria-busy={isLoading} aria-label="Submit form">
+  {isLoading ? 'Loading...' : 'Submit'}
+</button>
+
+// Modal dialog
+<div role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <h2 id="modal-title">Dialog Title</h2>
+</div>
+
+// Dropdown menu
+<button aria-haspopup="true" aria-expanded={isOpen}>
+  Menu
+</button>
+
+// Form validation
+<input
+  aria-invalid={hasError}
+  aria-describedby={hasError ? 'error-message' : undefined}
+/>
+{hasError && <div id="error-message" role="alert">Error message</div>}
+```
+
+## Keyboard Navigation
+
+All interactive components support keyboard navigation:
+
+- **Tab** - Move focus forward
+- **Shift + Tab** - Move focus backward
+- **Enter/Space** - Activate buttons
+- **Escape** - Close modals/dropdowns
+- **Arrow keys** - Navigate menus/lists
+
+## Screen Reader Support
+
+### Text Alternatives
+
+- All images have `alt` text
+- Icon-only buttons have `aria-label`
+- Decorative images use `alt=""`
+
+### Live Regions
+
+```tsx
+// Status messages
+<div role="status" aria-live="polite">
+  Form saved successfully
+</div>
+
+// Urgent alerts
+<div role="alert" aria-live="assertive">
+  Error: Please fix validation errors
+</div>
+```
+
+## Testing Checklist
+
+- [ ] Color contrast meets WCAG AA standards
+- [ ] All interactive elements are keyboard accessible
+- [ ] Focus indicators are visible
+- [ ] Semantic HTML used correctly
+- [ ] ARIA attributes added where needed
+- [ ] Screen reader announces content correctly
+- [ ] Works with reduced motion preference
+- [ ] Tested with keyboard only
+- [ ] Tested with screen reader (VoiceOver/NVDA)

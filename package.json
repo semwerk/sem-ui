@@ -1,0 +1,54 @@
+{
+  "name": "sem-ui",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React component library for Semcontext and SemPress",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semwerk/ui.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "build": "pnpm --recursive --stream run build",
+    "dev": "pnpm --recursive --parallel run dev",
+    "test": "pnpm --recursive --stream run test",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
+    "typecheck": "pnpm --recursive --stream run typecheck",
+    "clean": "pnpm --recursive run clean && rm -rf node_modules",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-links": "^8.6.15",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.15",
+    "@storybook/react-vite": "^8.6.15",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@semwerk/css": "^0.1.1",
+    "@semwerk/tailwind-preset": "^0.1.1",
+    "@semwerk/tokens": "^0.1.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.4",
+    "storybook": "^8.6.15",
+    "typescript": "^5.3.3",
+    "vite": "^7.3.0"
+  }
+}

@@ -1,0 +1,129 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Motion" />
+
+# Motion & Animation
+
+Consistent timing and easing for smooth, purposeful animations.
+
+## Duration Tokens
+
+Standardized animation durations for different interaction types.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+  {[
+    { token: 'fast', value: '150ms', usage: 'Micro-interactions, hover states, tooltips' },
+    { token: 'normal', value: '250ms', usage: 'Standard transitions, dropdowns, modals' },
+    { token: 'slow', value: '350ms', usage: 'Complex animations, page transitions' },
+  ].map(({ token, value, usage }) => (
+    <div key={token} style={{
+      padding: '1.5rem',
+      border: '1px solid #dee2e6',
+      borderRadius: '0.5rem',
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+        <div style={{ fontWeight: 600, fontFamily: 'monospace' }}>motion.duration.{token}</div>
+        <div style={{ color: '#6c757d' }}>{value}</div>
+      </div>
+      <div style={{
+        width: '100%',
+        height: '4px',
+        background: '#e9ecef',
+        borderRadius: '9999px',
+        overflow: 'hidden',
+      }}>
+        <div style={{
+          height: '100%',
+          background: '#3b82f6',
+          animation: `slide-${token} ${value} ease-in-out infinite`,
+        }} />
+      </div>
+      <div style={{ fontSize: '0.875rem', color: '#6c757d', marginTop: '0.75rem' }}>
+        {usage}
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>{`
+  @keyframes slide-fast { 0%, 100% { width: 0%; } 50% { width: 100%; } }
+  @keyframes slide-normal { 0%, 100% { width: 0%; } 50% { width: 100%; } }
+  @keyframes slide-slow { 0%, 100% { width: 0%; } 50% { width: 100%; } }
+`}</style>
+
+## Easing Functions
+
+Timing functions for natural, polished motion.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+  {[
+    { token: 'default', value: 'cubic-bezier(0.4, 0, 0.2, 1)', usage: 'Standard easing' },
+    { token: 'in', value: 'cubic-bezier(0.4, 0, 1, 1)', usage: 'Elements entering' },
+    { token: 'out', value: 'cubic-bezier(0, 0, 0.2, 1)', usage: 'Elements exiting' },
+    { token: 'inOut', value: 'cubic-bezier(0.4, 0, 0.2, 1)', usage: 'Full transitions' },
+  ].map(({ token, value, usage }) => (
+    <div key={token} style={{
+      padding: '1.5rem',
+      border: '1px solid #dee2e6',
+      borderRadius: '0.5rem',
+    }}>
+      <div style={{ fontWeight: 600, fontFamily: 'monospace', marginBottom: '0.5rem' }}>
+        motion.easing.{token}
+      </div>
+      <div style={{ fontSize: '0.75rem', color: '#6c757d', marginBottom: '1rem', fontFamily: 'monospace' }}>
+        {value}
+      </div>
+      <div style={{ fontSize: '0.875rem', color: '#6c757d' }}>
+        {usage}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+### When to Animate
+- State changes (hover, focus, active)
+- Visibility transitions (modals, dropdowns, tooltips)
+- Loading and progress indicators
+- Navigation and page transitions
+
+### When NOT to Animate
+- Initial page render
+- Data updates in tables/lists (unless important state change)
+- Rapid successive changes
+- Accessibility: respect `prefers-reduced-motion`
+
+## Examples
+
+```tsx
+// Button hover transition
+<button style={{
+  transition: 'all var(--motion-duration-fast) var(--motion-easing-default)',
+}}>
+  Hover me
+</button>
+
+// Modal entrance
+<div style={{
+  animation: 'fadeIn var(--motion-duration-normal) var(--motion-easing-out)',
+}}>
+  Modal content
+</div>
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+## Best Practices
+
+1. **Use fast (150ms)** for immediate feedback (hover, focus)
+2. **Use normal (250ms)** for most UI transitions
+3. **Use slow (350ms)** for complex, multi-step animations
+4. **Match easing to direction**: `in` for entering, `out` for exiting
+5. **Always include** reduced motion media query for accessibility

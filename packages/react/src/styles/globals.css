@@ -1,0 +1,54 @@
+/**
+ * Global styles for Semcontext UI
+ *
+ * These styles use CSS variables from @semwerk/css
+ * Consumers must import theme CSS files and set data attributes.
+ */
+
+/**
+ * CSS Cascade Layer for component styles
+ * Allows user overrides to take precedence
+ */
+@layer semcontext.components;
+
+/**
+ * Reset focus-visible for better accessibility
+ */
+*:focus-visible {
+  outline: 2px solid var(--color-focus-outline);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/**
+ * Respect reduced motion preference
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/**
+ * Density adjustments
+ */
+[data-density='comfortable'] {
+  --density-scale: 1;
+}
+
+[data-density='compact'] {
+  --density-scale: 0.875;
+}
+
+/**
+ * Base disabled state styling
+ */
+:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

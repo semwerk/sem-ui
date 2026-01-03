@@ -1,0 +1,99 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Design Tokens" />
+
+# Design Tokens Reference
+
+Complete reference of all design tokens available in the Sem design system.
+
+## Token Categories
+
+### Color Tokens
+- **Semantic** - success, warning, error, info (with bg and border variants)
+- **Background** - default, subtle, muted
+- **Surface** - default, raised, overlay
+- **Text** - default, muted, subtle, inverse
+- **Border** - default, subtle, strong
+
+[View Color Documentation →](?path=/docs/design-system-colors--docs)
+
+### Typography Tokens
+- **Font families** - sans, mono
+- **Font sizes** - 1-9 scale (0.75rem - 3rem)
+- **Font weights** - normal, medium, semibold, bold
+- **Line heights** - tight, normal, relaxed
+
+[View Typography Documentation →](?path=/docs/design-system-typography--docs)
+
+### Spacing Tokens
+- **Space scale** - 1-24 (0.25rem - 6rem)
+- Based on 4px grid system
+
+[View Spacing Documentation →](?path=/docs/design-system-spacing--docs)
+
+### Radius Tokens
+- **Border radius** - none, sm, md, lg, xl, 2xl, full
+- Range: 0 - 1rem (plus full for circular)
+
+[View Radius Documentation →](?path=/docs/design-system-border-radius--docs)
+
+### Shadow Tokens
+- **Elevation** - xs, sm, md, lg, xl, 2xl
+- Progressive depth system
+
+[View Shadow Documentation →](?path=/docs/design-system-shadows--docs)
+
+## Theme Variants
+
+All tokens adapt to theme context:
+- **base.light / base.dark** - Default themes
+- **semcontext.light / semcontext.dark** - Code-focused themes
+- **sempress.light / sempress.dark** - Content-focused themes
+
+[View Theme Documentation →](?path=/docs/design-system-themes--docs)
+
+## Token Structure
+
+```json
+{
+  "color": {
+    "semantic": { "success": "#10b981", ... },
+    "bg": { "default": "#ffffff", ... },
+    "text": { "default": "#212529", ... }
+  },
+  "font": {
+    "family": { "sans": "...", "mono": "..." },
+    "size": { "1": "0.75rem", ... },
+    "weight": { "normal": "400", ... }
+  },
+  "space": { "1": "0.25rem", ... },
+  "radius": { "sm": "0.25rem", ... },
+  "shadow": { "sm": "...", ... }
+}
+```
+
+## CSS Custom Properties
+
+Tokens are available as CSS variables:
+
+```css
+.component {
+  background: var(--color-bg-default);
+  color: var(--color-text-default);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-3);
+}
+```
+
+## TypeScript Access
+
+Import tokens directly in TypeScript:
+
+```tsx
+import { tokens } from '@semwerk/tokens';
+
+const fontSize = tokens.font.size[3]; // "1rem"
+const spacing = tokens.space[4]; // "1rem"
+```

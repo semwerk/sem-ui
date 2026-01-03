@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Spacing" />
+
+# Spacing System
+
+Consistent spacing scale for margins, padding, and gaps.
+
+## Scale
+
+The spacing system uses a 4px base unit with a geometric progression.
+
+<div style={{ display: 'grid', gap: '1rem', marginTop: '2rem' }}>
+  {[
+    { token: 'space.1', value: '0.25rem', pixels: '4px' },
+    { token: 'space.2', value: '0.5rem', pixels: '8px' },
+    { token: 'space.3', value: '0.75rem', pixels: '12px' },
+    { token: 'space.4', value: '1rem', pixels: '16px' },
+    { token: 'space.5', value: '1.25rem', pixels: '20px' },
+    { token: 'space.6', value: '1.5rem', pixels: '24px' },
+    { token: 'space.8', value: '2rem', pixels: '32px' },
+    { token: 'space.10', value: '2.5rem', pixels: '40px' },
+    { token: 'space.12', value: '3rem', pixels: '48px' },
+    { token: 'space.16', value: '4rem', pixels: '64px' },
+    { token: 'space.20', value: '5rem', pixels: '80px' },
+    { token: 'space.24', value: '6rem', pixels: '96px' },
+  ].map(({ token, value, pixels }) => (
+    <div key={token} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <div style={{
+        width: value,
+        height: '2rem',
+        background: '#3b82f6',
+        borderRadius: '0.25rem'
+      }} />
+      <div>
+        <div style={{ fontWeight: 600, fontFamily: 'monospace' }}>{token}</div>
+        <div style={{ fontSize: '0.875rem', color: '#6c757d' }}>
+          {value} ({pixels})
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+| Scale | Usage |
+|-------|-------|
+| 1-3 | Tight spacing (badges, compact lists) |
+| 4-6 | Component padding, small gaps |
+| 8-12 | Section spacing, card padding |
+| 16-24 | Page sections, major layout gaps |
+
+## Examples
+
+```tsx
+// Component padding
+<div style={{ padding: 'var(--space-4)' }}>...</div>
+
+// Stack layout
+<div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div>
+
+// Section spacing
+<section style={{ marginBottom: 'var(--space-12)' }}>...</section>
+```

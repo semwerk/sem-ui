@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Themes" />
+
+# Theme System
+
+Sem design system provides multiple theme variants for different products and contexts.
+
+## Available Themes
+
+### Base Themes
+Default themes for general use across all Sem products.
+
+- **base.light** - Clean, accessible light theme
+- **base.dark** - Low-contrast dark theme
+
+### Product-Specific Themes
+
+#### Semcontext Themes
+Optimized for development tools and code documentation.
+
+- **semcontext.light** - Enhanced readability for code contexts
+- **semcontext.dark** - Developer-friendly dark theme
+
+#### SemPress Themes
+Designed for content-focused documentation sites.
+
+- **sempress.light** - Reader-optimized light theme
+- **sempress.dark** - Comfortable dark reading experience
+
+## Theme Structure
+
+Each theme provides:
+- **Semantic colors** - Success, warning, error, info states
+- **Background layers** - Default, subtle, muted
+- **Text hierarchy** - Default, muted, subtle, inverse
+- **Border variants** - Default, subtle, strong
+- **Component tokens** - Button, input, card styling
+
+## Switching Themes
+
+Use the Storybook toolbar to toggle between light and dark backgrounds and see how components adapt.
+
+## Implementation
+
+Themes are CSS files that set CSS custom properties:
+
+```css
+/* base.light.css */
+:root {
+  --color-bg-default: #ffffff;
+  --color-text-default: #212529;
+  --color-border-default: #dee2e6;
+  /* ... */
+}
+```
+
+## Usage
+
+Import the desired theme CSS in your application:
+
+```tsx
+import '@semwerk/css'; // Includes all themes
+// or
+import '@semwerk/css/base.light.css'; // Specific theme
+```

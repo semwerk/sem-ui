@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Overview" />
+
+# Sem Design System
+
+This component library uses the **@semwerk** token system for consistent styling across Semcontext and SemPress.
+
+## Design Packages
+
+- **@semwerk/tokens** - Core design token definitions (colors, spacing, typography)
+- **@semwerk/css** - CSS implementations with light/dark themes
+- **@semwerk/tailwind-preset** - Tailwind CSS integration
+
+## Themes
+
+The design system supports multiple themes:
+
+### Base Themes
+- `base.light.css` - Default light theme
+- `base.dark.css` - Default dark theme
+
+### Product Themes
+- `semcontext.light/dark.css` - Semcontext-specific styling
+- `sempress.light/dark.css` - SemPress-specific styling
+
+## Using Design Tokens
+
+All components in this library use design tokens automatically through the imported CSS.
+
+Toggle between light/dark themes using the toolbar background selector.
