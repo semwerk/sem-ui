@@ -13,5 +13,8 @@ export * from './components/Badge';
 export * from './components/Input';
 export * from './components/Card';
 
+// Export providers
+export * from './providers';
+
 // Export utils
 export * from './utils';

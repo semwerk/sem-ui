@@ -6,6 +6,12 @@
  */
 
 /**
+ * CSS Cascade Layer for component styles
+ * Allows user overrides to take precedence
+ */
+@layer nexus.components;
+
+/**
  * Reset focus-visible for better accessibility
  */
 *:focus-visible {

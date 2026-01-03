@@ -8,6 +8,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
   asChild?: boolean;
+  /**
+   * Override classes for component slots
+   */
+  classes?: {
+    root?: string;
+    spinner?: string;
+  };
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -19,6 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       disabled,
       asChild = false,
+      classes,
       children,
       ...props
     },
@@ -34,12 +42,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles[variant],
           styles[size],
           loading && styles.loading,
+          classes?.root,
           className
         )}
         disabled={disabled || loading}
+        data-nx="Button"
+        data-nx-variant={variant}
+        data-nx-size={size}
+        data-nx-loading={loading || undefined}
         {...props}
       >
-        {loading && <span className={styles.spinner} aria-hidden="true" />}
+        {loading && (
+          <span
+            className={cn(styles.spinner, classes?.spinner)}
+            data-nx-slot="spinner"
+            aria-hidden="true"
+          />
+        )}
         {children}
       </Comp>
     );

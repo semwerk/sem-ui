@@ -4,15 +4,23 @@ import styles from './Input.module.css';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
+  /**
+   * Override class for root element
+   */
+  classes?: {
+    root?: string;
+  };
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, error, ...props }, ref) => {
+  ({ className, error, classes, ...props }, ref) => {
     return (
       <input
         ref={ref}
-        className={cn(styles.input, className)}
+        className={cn(styles.input, classes?.root, className)}
         aria-invalid={error ? 'true' : undefined}
+        data-nx="Input"
+        data-nx-error={error || undefined}
         {...props}
       />
     );
