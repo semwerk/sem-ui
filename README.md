@@ -1,23 +1,23 @@
-# Nexus UI
+# Werkcontext UI
 
-React component library for Nexus and Doconaut, built on design tokens from `nexus-design`.
+React component library for Werkcontext and WerkPress, built on design tokens from `werk-design`.
 
 ## Overview
 
-Nexus UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@nexus-design/css` - no hardcoded colors, spacing, or other design values in component code.
+Werkcontext UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@werk-design/css` - no hardcoded colors, spacing, or other design values in component code.
 
 ## Packages
 
 | Package | Description |
 |---------|-------------|
-| `@nexus-ui/react` | Main component library |
-| `@nexus-ui/icons` | Icon wrapper (optional) |
-| `@nexus-ui/eslint-config` | Shared ESLint configuration |
+| `@werk-ui/react` | Main component library |
+| `@werk-ui/icons` | Icon wrapper (optional) |
+| `@werk-ui/eslint-config` | Shared ESLint configuration |
 
 ## Installation
 
 ```bash
-pnpm add @nexus-ui/react @nexus-design/css
+pnpm add @werk-ui/react @werk-design/css
 ```
 
 ## Quick Start
@@ -28,10 +28,10 @@ In your app's entry point or root layout:
 
 ```tsx
 // app/layout.tsx or main.tsx
-import '@nexus-design/css';
-import '@nexus-design/css/nexus.light.css';
-import '@nexus-design/css/nexus.dark.css';
-import '@nexus-ui/react/styles.css';
+import '@werk-design/css';
+import '@werk-design/css/werkcontext.light.css';
+import '@werk-design/css/werkcontext.dark.css';
+import '@werk-ui/react/styles.css';
 ```
 
 ### 2. Set Theme Attributes
@@ -41,7 +41,7 @@ Apply `data-theme` and `data-mode` to your root HTML element:
 ```tsx
 export default function RootLayout({ children }: { children: React.Node }) {
   return (
-    <html lang="en" data-theme="nexus" data-mode="light">
+    <html lang="en" data-theme="werkcontext" data-mode="light">
       <body>{children}</body>
     </html>
   );
@@ -51,12 +51,12 @@ export default function RootLayout({ children }: { children: React.Node }) {
 ### 3. Use Components
 
 ```tsx
-import { Button, Card, Input, Badge } from '@nexus-ui/react';
+import { Button, Card, Input, Badge } from '@werk-ui/react';
 
 export function MyPage() {
   return (
     <Card>
-      <h1>Welcome to Nexus</h1>
+      <h1>Welcome to Werkcontext</h1>
       <Badge variant="primary">New</Badge>
       <Input placeholder="Enter your name" />
       <Button variant="primary">Submit</Button>
@@ -73,7 +73,7 @@ Change themes by updating data attributes:
 
 ```tsx
 function ThemeToggle() {
-  const [theme, setTheme] = useState<'nexus' | 'doconaut'>('nexus');
+  const [theme, setTheme] = useState<'werkcontext' | 'werkPress'>('werkcontext');
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -83,7 +83,7 @@ function ThemeToggle() {
 
   return (
     <>
-      <button onClick={() => setTheme(t => t === 'nexus' ? 'doconaut' : 'nexus')}>
+      <button onClick={() => setTheme(t => t === 'werkcontext' ? 'werkPress' : 'werkcontext')}>
         Switch Theme
       </button>
       <button onClick={() => setMode(m => m === 'light' ? 'dark' : 'light')}>
@@ -99,7 +99,7 @@ function ThemeToggle() {
 Adjust component spacing with `data-density`:
 
 ```tsx
-<html data-theme="nexus" data-mode="light" data-density="compact">
+<html data-theme="werkcontext" data-mode="light" data-density="compact">
 ```
 
 Options:
@@ -111,7 +111,7 @@ Options:
 ```tsx
 import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'nexus' | 'doconaut';
+type Theme = 'werkcontext' | 'werkPress';
 type Mode = 'light' | 'dark';
 type Density = 'comfortable' | 'compact';
 
@@ -128,7 +128,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() =>
-    (localStorage.getItem('theme') as Theme) || 'nexus'
+    (localStorage.getItem('theme') as Theme) || 'werkcontext'
   );
   const [mode, setMode] = useState<Mode>(() =>
     (localStorage.getItem('mode') as Mode) || 'light'
@@ -207,7 +207,7 @@ Components map variants to semantic tokens:
 - `error` → `color.semantic.error`
 
 ### Theme Independence
-Component code never branches on theme. Differences between Nexus and Doconaut are achieved purely through CSS variable values.
+Component code never branches on theme. Differences between Werkcontext and WerkPress are achieved purely through CSS variable values.
 
 ## Development
 

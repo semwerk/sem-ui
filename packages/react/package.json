@@ -1,7 +1,7 @@
 {
-  "name": "@nexus-ui/react",
+  "name": "@werk-ui/react",
   "version": "0.1.0",
-  "description": "React component library for Nexus and Doconaut",
+  "description": "React component library for Werkcontext and WerkPress",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

@@ -1,7 +1,7 @@
 /**
- * Global styles for Nexus UI
+ * Global styles for Werkcontext UI
  *
- * These styles use CSS variables from @nexus-design/css
+ * These styles use CSS variables from @werk-design/css
  * Consumers must import theme CSS files and set data attributes.
  */
 
@@ -9,7 +9,7 @@
  * CSS Cascade Layer for component styles
  * Allows user overrides to take precedence
  */
-@layer nexus.components;
+@layer werkcontext.components;
 
 /**
  * Reset focus-visible for better accessibility

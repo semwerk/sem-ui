@@ -4,7 +4,7 @@ Complete reference of stable data attributes for component customization.
 
 ## Overview
 
-All Nexus UI components expose stable `data-nx` and `data-nx-*` attributes for CSS-based customization. These attributes are considered **public API** and will not change without a deprecation period.
+All Werkcontext UI components expose stable `data-nx` and `data-nx-*` attributes for CSS-based customization. These attributes are considered **public API** and will not change without a deprecation period.
 
 ## Usage Pattern
 
@@ -191,8 +191,8 @@ All Nexus UI components expose stable `data-nx` and `data-nx-*` attributes for C
 ### Theme-Specific Overrides
 
 ```css
-/* Different button style for doconaut theme */
-[data-theme="doconaut"] [data-nx="Button"][data-nx-variant="primary"] {
+/* Different button style for werkPress theme */
+[data-theme="werkPress"] [data-nx="Button"][data-nx-variant="primary"] {
   border-radius: var(--radius-full);
 }
 ```

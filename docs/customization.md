@@ -1,6 +1,6 @@
 # Customization Guide
 
-This guide explains how to customize Nexus UI components while maintaining consistency and accessibility.
+This guide explains how to customize Werkcontext UI components while maintaining consistency and accessibility.
 
 ## Customization Hierarchy
 
@@ -21,8 +21,8 @@ Override design tokens to customize all components at once:
 
 ```css
 /* brand.css */
-@layer nexus.user {
-  [data-theme="nexus"][data-mode="light"] {
+@layer werkcontext.user {
+  [data-theme="werkcontext"][data-mode="light"] {
     --color-accent-primary: #e63946;
     --color-accent-primary-hover: #d62828;
     --color-accent-primary-active: #c1121f;
@@ -32,9 +32,9 @@ Override design tokens to customize all components at once:
 
 ```tsx
 // app.tsx
-import '@nexus-design/css/dist/layers.css';
-import '@nexus-design/css/dist/base.light.css';
-import '@nexus-design/css/dist/nexus.light.css';
+import '@werk-design/css/dist/layers.css';
+import '@werk-design/css/dist/base.light.css';
+import '@werk-design/css/dist/werkcontext.light.css';
 import './brand.css'; // Your overrides
 
 <Button variant="primary">
@@ -48,7 +48,7 @@ import './brand.css'; // Your overrides
 - Preserves accessibility
 - Easy to update
 
-**See:** [@nexus-design docs/theming.md](../../nexus-design/docs/theming.md)
+**See:** [@werk-design docs/theming.md](../../werk-design/docs/theming.md)
 
 ## 2. Theme Extension
 
@@ -56,15 +56,15 @@ Create entirely custom themes:
 
 ```bash
 # Generate scaffold
-npx @nexus-design/tokens scaffold-overrides \
-  --theme nexus \
+npx @werk-design/tokens scaffold-overrides \
+  --theme werkcontext \
   --mode light \
   --out ./custom-theme.css
 ```
 
 Edit the generated file to match your brand.
 
-**See:** [@nexus-design docs/theming.md](../../nexus-design/docs/theming.md)
+**See:** [@werk-design docs/theming.md](../../werk-design/docs/theming.md)
 
 ## 3. Component Slot Classes
 
@@ -160,7 +160,7 @@ function CustomCard({ title, action, children }) {
 Pre-built patterns for common use cases (coming soon):
 
 ```tsx
-import { Toolbar, PropertyGrid, DocCallout } from '@nexus-ui/recipes';
+import { Toolbar, PropertyGrid, DocCallout } from '@werk-ui/recipes';
 
 <Toolbar>
   <Toolbar.Section>
@@ -176,8 +176,8 @@ import { Toolbar, PropertyGrid, DocCallout } from '@nexus-ui/recipes';
 
 ```css
 /* brand-overrides.css */
-@layer nexus.user {
-  [data-theme="nexus"] {
+@layer werkcontext.user {
+  [data-theme="werkcontext"] {
     /* Your brand colors */
     --color-accent-primary: #ff6b35;
     --color-accent-primary-hover: #e85d2f;
@@ -288,7 +288,7 @@ When customizing:
 
 1. Check CSS import order - layers.css must be first
 2. Check selector specificity - use same pattern as theme
-3. Check cascade layer - put overrides in `@layer nexus.user`
+3. Check cascade layer - put overrides in `@layer werkcontext.user`
 4. Inspect computed styles in DevTools
 
 ### Data Attributes Missing
@@ -308,7 +308,7 @@ When customizing:
 
 ### Upgrading Components
 
-When upgrading `@nexus-ui/react`:
+When upgrading `@werk-ui/react`:
 
 1. Check CHANGELOG for breaking changes
 2. Verify `data-nx` attributes are still present
@@ -350,7 +350,7 @@ Yes, but prefer token overrides:
 
 ### Can I create my own theme from scratch?
 
-Yes! See [@nexus-design theming guide](../../nexus-design/docs/theming.md).
+Yes! See [@werk-design theming guide](../../werk-design/docs/theming.md).
 
 ### Will data attributes change?
 
@@ -364,5 +364,5 @@ Component styles use CSS Modules and are scoped. Global styles only set defaults
 
 - [Theme Provider](./theming.md) - Runtime theme switching
 - [Slots & Selectors](./slots-and-selectors.md) - Complete data attribute reference
-- [@nexus-design Theming](../../nexus-design/docs/theming.md) - Token customization
-- [@nexus-design Overrides](../../nexus-design/docs/overrides.md) - Override patterns
+- [@werk-design Theming](../../werk-design/docs/theming.md) - Token customization
+- [@werk-design Overrides](../../werk-design/docs/overrides.md) - Override patterns

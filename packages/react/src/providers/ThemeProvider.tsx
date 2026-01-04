@@ -1,5 +1,5 @@
 /**
- * Theme Provider for Nexus UI
+ * Theme Provider for Werkcontext UI
  *
  * Optional provider that manages theme, mode, and density via data attributes.
  * Provides hooks for accessing and updating theme state.
@@ -8,7 +8,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-export type Theme = 'nexus' | 'doconaut' | string;
+export type Theme = 'werkcontext' | 'werkPress' | string;
 export type Mode = 'light' | 'dark';
 export type Density = 'comfortable' | 'compact';
 
@@ -38,17 +38,17 @@ export interface ThemeProviderProps {
  *
  * @example
  * ```tsx
- * <ThemeProvider defaultTheme="nexus" defaultMode="light">
+ * <ThemeProvider defaultTheme="werkcontext" defaultMode="light">
  *   <App />
  * </ThemeProvider>
  * ```
  */
 export function ThemeProvider({
   children,
-  defaultTheme = 'nexus',
+  defaultTheme = 'werkcontext',
   defaultMode = 'light',
   defaultDensity = 'comfortable',
-  storageKey = 'nexus-ui-theme',
+  storageKey = 'werk-ui-theme',
 }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window === 'undefined') return defaultTheme;

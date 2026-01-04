@@ -1,7 +1,7 @@
 /**
- * Nexus UI - React Component Library
+ * Werkcontext UI - React Component Library
  *
- * All components use design tokens from @nexus-design/css
+ * All components use design tokens from @werk-design/css
  */
 
 // Import global styles
