@@ -52,14 +52,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-nx-loading={loading || undefined}
         {...props}
       >
-        {loading && (
-          <span
-            className={cn(styles.spinner, classes?.spinner)}
-            data-nx-slot="spinner"
-            aria-hidden="true"
-          />
+        {asChild ? (
+          // Slot requires exactly one child element - pass children directly
+          children
+        ) : (
+          // Regular button can have spinner + children
+          <>
+            {loading && (
+              <span
+                className={cn(styles.spinner, classes?.spinner)}
+                data-nx-slot="spinner"
+                aria-hidden="true"
+              />
+            )}
+            {children}
+          </>
         )}
-        {children}
       </Comp>
     );
   }

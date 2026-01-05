@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuthContext } from "../providers/AuthProvider";
 import { retrieveOAuthState } from "../lib/pkce";
-import { extractUserFromToken } from "../lib/jwt";
 
 interface UseOAuthCallbackResult {
   isLoading: boolean;

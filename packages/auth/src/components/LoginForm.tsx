@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Button, Input } from "@werk-ui/react";
 import { useLogin } from "../hooks/useLogin";
 

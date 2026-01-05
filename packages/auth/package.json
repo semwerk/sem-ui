@@ -30,7 +30,7 @@
     "react-router-dom": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
-    "@werk-ui/react": "workspace:*"
+    "@werk-ui/react": "file:../react"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",

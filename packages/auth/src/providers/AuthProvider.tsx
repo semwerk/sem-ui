@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useState,
@@ -17,7 +17,7 @@ import type {
   OAuthProviderName,
 } from "../types";
 import { createLocalStorage, type TokenStorage } from "../lib/storage";
-import { decodeToken, isTokenExpired, extractUserFromToken } from "../lib/jwt";
+import { isTokenExpired, extractUserFromToken } from "../lib/jwt";
 import { initiateOAuthFlow } from "../lib/pkce";
 
 interface AuthContextValue extends AuthState {

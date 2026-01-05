@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@werk-ui/react";
 import { useAuthContext } from "../providers/AuthProvider";
 import type { OAuthProviderName } from "../types";
