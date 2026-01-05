@@ -1,0 +1,108 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Z-Index" />
+
+# Z-Index Scale
+
+Consistent layering system for overlays and elevated elements.
+
+## Layer Hierarchy
+
+<div style={{ marginTop: '2rem', marginBottom: '3rem' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+    {[
+      { token: 'tooltip', value: '1600', usage: 'Tooltips - highest priority' },
+      { token: 'popover', value: '1500', usage: 'Popovers and floating UI' },
+      { token: 'modal', value: '1400', usage: 'Modal dialogs' },
+      { token: 'modalBackdrop', value: '1300', usage: 'Modal backdrops/overlays' },
+      { token: 'fixed', value: '1200', usage: 'Fixed position elements' },
+      { token: 'sticky', value: '1100', usage: 'Sticky headers and navigation' },
+      { token: 'dropdown', value: '1000', usage: 'Dropdown menus and selects' },
+      { token: 'base', value: '0', usage: 'Default document flow' },
+    ].map(({ token, value, usage }, index) => (
+      <div
+        key={token}
+        style={{
+          position: 'relative',
+          padding: '1rem 1.5rem',
+          background: index === 0 ? '#3b82f6' : index < 4 ? '#60a5fa' : index < 6 ? '#93c5fd' : '#dbeafe',
+          color: index < 6 ? '#ffffff' : '#1e3a8a',
+          borderRadius: '0.5rem',
+          marginLeft: `${index * 1.5}rem`,
+          boxShadow: index < 6 ? '0 4px 6px -1px rgb(0 0 0 / 0.1)' : 'none',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <span style={{ fontWeight: 600, fontFamily: 'monospace' }}>zIndex.{token}</span>
+            <span style={{ marginLeft: '1rem', opacity: 0.8 }}>{usage}</span>
+          </div>
+          <div style={{ fontWeight: 600, fontFamily: 'monospace' }}>{value}</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+## Usage Guidelines
+
+### Layer Purpose
+
+| Layer | Z-Index | Use For |
+|-------|---------|---------|
+| **base** | 0 | Default content, no stacking needed |
+| **dropdown** | 1000 | Select menus, autocomplete suggestions |
+| **sticky** | 1100 | Sticky headers, table headers |
+| **fixed** | 1200 | Fixed navigation, side panels |
+| **modalBackdrop** | 1300 | Modal overlay backgrounds |
+| **modal** | 1400 | Dialog content, sheets |
+| **popover** | 1500 | Floating menus, context menus |
+| **tooltip** | 1600 | Tooltips (highest priority) |
+
+### Rules
+
+1. **Never use arbitrary values** - Always use defined tokens
+2. **Layer respect** - Modals above dropdowns, tooltips above everything
+3. **Minimize usage** - Most components shouldn't need z-index
+4. **Local stacking** - Use relative positioning for local stacking contexts
+
+## Examples
+
+```tsx
+// Dropdown menu
+<div style={{ zIndex: 'var(--zIndex-dropdown)' }}>
+  <MenuItem>Option 1</MenuItem>
+</div>
+
+// Modal
+<div style={{ zIndex: 'var(--zIndex-modalBackdrop)' }}>
+  {/* Backdrop */}
+</div>
+<div style={{ zIndex: 'var(--zIndex-modal)' }}>
+  {/* Modal content */}
+</div>
+
+// Sticky header
+<header style={{
+  position: 'sticky',
+  top: 0,
+  zIndex: 'var(--zIndex-sticky)',
+}}>
+  Navigation
+</header>
+
+// Tooltip
+<div style={{ zIndex: 'var(--zIndex-tooltip)' }}>
+  Helpful tip
+</div>
+```
+
+## Stacking Context
+
+Be aware of stacking contexts created by:
+- `position: relative/absolute/fixed` with z-index
+- `opacity` less than 1
+- `transform`, `filter`, `perspective`
+- `isolation: isolate`
+
+These create new z-index contexts where children cannot escape.

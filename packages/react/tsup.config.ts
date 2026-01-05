@@ -8,7 +8,7 @@ export default defineConfig({
   },
   sourcemap: true,
   clean: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'lucide-react'],
   esbuildOptions(options) {
     options.banner = {
       js: '"use client";',

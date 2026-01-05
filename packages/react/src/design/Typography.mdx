@@ -1,0 +1,84 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Design System/Typography" />
+
+# Typography
+
+The Werk design system uses a modular type scale with consistent font families and weights.
+
+## Font Families
+
+### Sans Serif (Default)
+System font stack optimized for UI and body text:
+```
+-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+'Helvetica Neue', sans-serif
+```
+
+### Monospace (Code)
+Monospace stack for code blocks and technical content:
+```
+'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code',
+'Fira Mono', 'Roboto Mono', monospace
+```
+
+## Type Scale
+
+<Typeset
+  fontSizes={[
+    '0.75rem',
+    '0.875rem',
+    '1rem',
+    '1.125rem',
+    '1.25rem',
+    '1.5rem',
+    '1.875rem',
+    '2.25rem',
+    '3rem',
+  ]}
+  fontWeight={400}
+  sampleText="The quick brown fox jumps over the lazy dog"
+/>
+
+## Font Sizes
+
+| Token | Size | Usage |
+|-------|------|-------|
+| `font.1` | 0.75rem (12px) | Captions, labels |
+| `font.2` | 0.875rem (14px) | Small text, metadata |
+| `font.3` | 1rem (16px) | Body text (default) |
+| `font.4` | 1.125rem (18px) | Large body text |
+| `font.5` | 1.25rem (20px) | Small headings |
+| `font.6` | 1.5rem (24px) | Section headings |
+| `font.7` | 1.875rem (30px) | Page headings |
+| `font.8` | 2.25rem (36px) | Large headings |
+| `font.9` | 3rem (48px) | Display text |
+
+## Font Weights
+
+| Token | Weight | Usage |
+|-------|--------|-------|
+| `normal` | 400 | Body text |
+| `medium` | 500 | Emphasized text |
+| `semibold` | 600 | Subheadings |
+| `bold` | 700 | Headings |
+
+## Line Heights
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `tight` | 1.25 | Headings |
+| `normal` | 1.5 | Body text |
+| `relaxed` | 1.75 | Long-form content |
+
+## Usage
+
+```tsx
+<h1 style={{ fontSize: 'var(--font-size-7)', fontWeight: 'var(--font-weight-bold)' }}>
+  Heading
+</h1>
+<p style={{ fontSize: 'var(--font-size-3)', lineHeight: 'var(--font-lineHeight-normal)' }}>
+  Body text
+</p>
+```

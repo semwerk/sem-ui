@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Shadows" />
+
+# Shadow System
+
+Elevation and depth through shadow tokens.
+
+## Shadow Scale
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginTop: '3rem', marginBottom: '3rem' }}>
+  {[
+    { level: 'xs', shadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)', usage: 'Subtle depth' },
+    { level: 'sm', shadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)', usage: 'Cards, dropdowns' },
+    { level: 'md', shadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', usage: 'Raised elements' },
+    { level: 'lg', shadow: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)', usage: 'Modals, popovers' },
+    { level: 'xl', shadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', usage: 'Overlays' },
+    { level: '2xl', shadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)', usage: 'Maximum elevation' },
+  ].map(({ level, shadow, usage }) => (
+    <div key={level}>
+      <div style={{
+        width: '100%',
+        height: '120px',
+        background: '#ffffff',
+        borderRadius: '0.5rem',
+        boxShadow: shadow,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: '1rem',
+      }}>
+        <span style={{ fontWeight: 600, color: '#6c757d' }}>shadow.{level}</span>
+      </div>
+      <div style={{ fontSize: '0.875rem', color: '#6c757d' }}>{usage}</div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+- **xs** - Minimal depth for nested elements
+- **sm** - Standard cards and container depth
+- **md** - Interactive elements on hover
+- **lg** - Modals and important popups
+- **xl/2xl** - Full-screen overlays and dialogs
+
+## Examples
+
+```tsx
+// Card with subtle shadow
+<div style={{ boxShadow: 'var(--shadow-sm)' }}>
+  Card content
+</div>
+
+// Elevated button on hover
+<button style={{
+  boxShadow: 'var(--shadow-xs)',
+  transition: 'box-shadow 0.2s',
+}}>
+  {/* On hover: boxShadow: 'var(--shadow-md)' */}
+  Button
+</button>
+```

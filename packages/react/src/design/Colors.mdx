@@ -1,0 +1,111 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Design System/Colors" />
+
+# Color System
+
+The Werk design system uses semantic color tokens that automatically adapt to light and dark themes.
+
+## Semantic Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    subtitle="Used for positive actions and confirmations"
+    colors={{
+      'Success': '#10b981',
+      'Success Background': '#d1fae5',
+      'Success Border': '#6ee7b7',
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Used for cautionary states"
+    colors={{
+      'Warning': '#f59e0b',
+      'Warning Background': '#fef3c7',
+      'Warning Border': '#fcd34d',
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Used for errors and destructive actions"
+    colors={{
+      'Error': '#ef4444',
+      'Error Background': '#fee2e2',
+      'Error Border': '#fca5a5',
+    }}
+  />
+  <ColorItem
+    title="Info"
+    subtitle="Used for informational messages"
+    colors={{
+      'Info': '#3b82f6',
+      'Info Background': '#dbeafe',
+      'Info Border': '#93c5fd',
+    }}
+  />
+</ColorPalette>
+
+## Background Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Backgrounds"
+    subtitle="Page and container backgrounds"
+    colors={{
+      'Default': '#ffffff',
+      'Subtle': '#f8f9fa',
+      'Muted': '#e9ecef',
+    }}
+  />
+  <ColorItem
+    title="Surfaces"
+    subtitle="Component surfaces and cards"
+    colors={{
+      'Default': '#ffffff',
+      'Raised': '#ffffff',
+      'Overlay': '#ffffff',
+    }}
+  />
+</ColorPalette>
+
+## Text Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Text"
+    subtitle="Typography colors"
+    colors={{
+      'Default': '#212529',
+      'Muted': '#6c757d',
+      'Subtle': '#adb5bd',
+      'Inverse': '#ffffff',
+    }}
+  />
+</ColorPalette>
+
+## Border Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Borders"
+    subtitle="Component borders and dividers"
+    colors={{
+      'Default': '#dee2e6',
+      'Subtle': '#e9ecef',
+      'Strong': '#adb5bd',
+    }}
+  />
+</ColorPalette>
+
+## Usage
+
+Colors automatically switch between light and dark themes based on the `@werk-design/css` theme loaded.
+
+```tsx
+// Colors are applied via CSS custom properties
+<div className="bg-surface-default text-default border-default">
+  Content with theme-aware colors
+</div>
+```

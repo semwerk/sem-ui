@@ -1,0 +1,206 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Component Patterns" />
+
+# Component Patterns
+
+Best practices and common patterns for building components with the Werk design system.
+
+## Interactive States
+
+All interactive components should handle these states:
+
+### State Progression
+
+```
+Default → Hover → Focus → Active → Disabled
+```
+
+### Visual Feedback
+
+<div style={{ display: 'grid', gap: '1rem', marginTop: '2rem', marginBottom: '2rem' }}>
+  {[
+    { state: 'Default', bg: '#3b82f6', shadow: 'var(--shadow-xs)' },
+    { state: 'Hover', bg: '#2563eb', shadow: 'var(--shadow-sm)' },
+    { state: 'Focus', bg: '#3b82f6', shadow: 'var(--shadow-sm)', outline: '2px solid #3b82f6', outlineOffset: '2px' },
+    { state: 'Active', bg: '#1d4ed8', shadow: 'var(--shadow-xs)' },
+    { state: 'Disabled', bg: '#e9ecef', shadow: 'none', opacity: 0.6 },
+  ].map(({ state, bg, shadow, outline, outlineOffset, opacity }) => (
+    <div key={state} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <button style={{
+        padding: 'var(--space-3) var(--space-6)',
+        background: bg,
+        color: state === 'Disabled' ? '#6c757d' : '#ffffff',
+        border: 'none',
+        borderRadius: 'var(--radius-md)',
+        boxShadow: shadow,
+        outline,
+        outlineOffset,
+        opacity,
+        cursor: state === 'Disabled' ? 'not-allowed' : 'pointer',
+        fontWeight: 500,
+      }}>
+        Button
+      </button>
+      <div>
+        <div style={{ fontWeight: 600 }}>{state}</div>
+        <div style={{ fontSize: '0.875rem', color: '#6c757d' }}>
+          {state === 'Hover' && 'Darker background, elevated shadow'}
+          {state === 'Focus' && 'Focus ring, elevated shadow'}
+          {state === 'Active' && 'Darkest background, reduced shadow'}
+          {state === 'Disabled' && 'Muted colors, reduced opacity'}
+          {state === 'Default' && 'Base appearance'}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+## Layout Patterns
+
+### Card Grid
+
+```tsx
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+  gap: 'var(--space-6)',
+}}>
+  <Card>Card 1</Card>
+  <Card>Card 2</Card>
+  <Card>Card 3</Card>
+</div>
+```
+
+### Stack Layout
+
+```tsx
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 'var(--space-4)',
+}}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div>
+```
+
+### Cluster Layout
+
+```tsx
+<div style={{
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: 'var(--space-3)',
+}}>
+  <Badge>Tag 1</Badge>
+  <Badge>Tag 2</Badge>
+  <Badge>Tag 3</Badge>
+</div>
+```
+
+## Form Patterns
+
+### Field with Label and Error
+
+```tsx
+<div style={{ marginBottom: 'var(--space-6)' }}>
+  <label
+    htmlFor="email"
+    style={{
+      display: 'block',
+      marginBottom: 'var(--space-2)',
+      fontSize: 'var(--font-size-2)',
+      fontWeight: 'var(--font-weight-medium)',
+    }}
+  >
+    Email
+  </label>
+  <Input
+    id="email"
+    type="email"
+    aria-invalid={hasError}
+    aria-describedby="email-error"
+  />
+  {hasError && (
+    <div
+      id="email-error"
+      role="alert"
+      style={{
+        marginTop: 'var(--space-2)',
+        fontSize: 'var(--font-size-2)',
+        color: 'var(--color-semantic-error)',
+      }}
+    >
+      Please enter a valid email
+    </div>
+  )}
+</div>
+```
+
+## Feedback Patterns
+
+### Loading States
+
+```tsx
+// Button loading
+<Button disabled aria-busy={true}>
+  <Spinner size="sm" />
+  Loading...
+</Button>
+
+// Skeleton loading
+<div style={{
+  height: '20px',
+  background: 'linear-gradient(90deg, #f8f9fa 25%, #e9ecef 50%, #f8f9fa 75%)',
+  backgroundSize: '200% 100%',
+  animation: 'shimmer 1.5s infinite',
+  borderRadius: 'var(--radius-sm)',
+}} />
+```
+
+### Success/Error Messages
+
+```tsx
+// Success message
+<div style={{
+  padding: 'var(--space-4)',
+  background: 'var(--color-semantic-successBg)',
+  color: 'var(--color-semantic-success)',
+  border: '1px solid var(--color-semantic-successBorder)',
+  borderRadius: 'var(--radius-md)',
+}} role="status">
+  Changes saved successfully
+</div>
+
+// Error message
+<div style={{
+  padding: 'var(--space-4)',
+  background: 'var(--color-semantic-errorBg)',
+  color: 'var(--color-semantic-error)',
+  border: '1px solid var(--color-semantic-errorBorder)',
+  borderRadius: 'var(--radius-md)',
+}} role="alert">
+  An error occurred
+</div>
+```
+
+## Do's and Don'ts
+
+### ✓ Do
+
+- Use semantic color tokens (success, error, warning, info)
+- Apply consistent spacing using space tokens
+- Include focus indicators on all interactive elements
+- Use appropriate ARIA attributes
+- Test with keyboard navigation
+- Respect reduced motion preferences
+
+### ✗ Don't
+
+- Use hardcoded color values
+- Use arbitrary spacing values
+- Remove focus outlines without replacement
+- Skip semantic HTML elements
+- Assume mouse-only interaction
+- Animate everything by default

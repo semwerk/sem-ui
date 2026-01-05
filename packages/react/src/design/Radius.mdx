@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Border Radius" />
+
+# Border Radius
+
+Consistent corner rounding for components and containers.
+
+## Scale
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+  {[
+    { token: 'none', value: '0', label: 'None' },
+    { token: 'sm', value: '0.25rem', label: 'Small' },
+    { token: 'md', value: '0.375rem', label: 'Medium' },
+    { token: 'lg', value: '0.5rem', label: 'Large' },
+    { token: 'xl', value: '0.75rem', label: 'Extra Large' },
+    { token: '2xl', value: '1rem', label: '2X Large' },
+    { token: 'full', value: '9999px', label: 'Full (Pills)' },
+  ].map(({ token, value, label }) => (
+    <div key={token} style={{ textAlign: 'center' }}>
+      <div style={{
+        width: '100px',
+        height: '100px',
+        background: '#3b82f6',
+        borderRadius: value,
+        margin: '0 auto 1rem',
+      }} />
+      <div style={{ fontWeight: 600, fontFamily: 'monospace' }}>radius.{token}</div>
+      <div style={{ fontSize: '0.875rem', color: '#6c757d' }}>{value}</div>
+      <div style={{ fontSize: '0.75rem', color: '#adb5bd' }}>{label}</div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+| Token | Usage |
+|-------|-------|
+| `none` | Sharp corners (tables, grids) |
+| `sm` | Subtle rounding (inputs, badges) |
+| `md` | Default rounding (buttons, cards) |
+| `lg` | Pronounced rounding (modals, panels) |
+| `xl` | Strong rounding (feature cards) |
+| `2xl` | Very rounded (hero elements) |
+| `full` | Pills and circular elements |
+
+## Examples
+
+```tsx
+// Button with medium radius
+<button style={{ borderRadius: 'var(--radius-md)' }}>Click me</button>
+
+// Card with large radius
+<div style={{ borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)' }}>
+  Card content
+</div>
+
+// Pill badge
+<span style={{ borderRadius: 'var(--radius-full)', padding: '0.25rem 0.75rem' }}>
+  Badge
+</span>
+```
