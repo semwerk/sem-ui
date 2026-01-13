@@ -1,7 +1,7 @@
 /**
- * Werkcontext UI - React Component Library
+ * Semcontext UI - React Component Library
  *
- * All components use design tokens from @werk-design/css
+ * All components use design tokens from @sem-design/css
  */
 
 // Import global styles

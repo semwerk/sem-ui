@@ -1,5 +1,5 @@
 /**
- * Authentication types for @werk-ui/auth
+ * Authentication types for @sem-ui/auth
  */
 
 /** User information from authentication */

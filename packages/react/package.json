@@ -1,7 +1,7 @@
 {
-  "name": "@werk-ui/react",
+  "name": "@sem-ui/react",
   "version": "0.1.0",
-  "description": "React component library for Werkcontext and WerkPress",
+  "description": "React component library for Semcontext and SemPress",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

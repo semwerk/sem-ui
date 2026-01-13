@@ -1,23 +1,23 @@
-# Werkcontext UI
+# Semcontext UI
 
-React component library for Werkcontext and WerkPress, built on design tokens from `werk-design`.
+React component library for Semcontext and SemPress, built on design tokens from `sem-design`.
 
 ## Overview
 
-Werkcontext UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@werk-design/css` - no hardcoded colors, spacing, or other design values in component code.
+Semcontext UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@sem-design/css` - no hardcoded colors, spacing, or other design values in component code.
 
 ## Packages
 
 | Package | Description |
 |---------|-------------|
-| `@werk-ui/react` | Main component library |
-| `@werk-ui/icons` | Icon wrapper (optional) |
-| `@werk-ui/eslint-config` | Shared ESLint configuration |
+| `@sem-ui/react` | Main component library |
+| `@sem-ui/icons` | Icon wrapper (optional) |
+| `@sem-ui/eslint-config` | Shared ESLint configuration |
 
 ## Installation
 
 ```bash
-pnpm add @werk-ui/react @werk-design/css
+pnpm add @sem-ui/react @sem-design/css
 ```
 
 ## Quick Start
@@ -28,10 +28,10 @@ In your app's entry point or root layout:
 
 ```tsx
 // app/layout.tsx or main.tsx
-import '@werk-design/css';
-import '@werk-design/css/werkcontext.light.css';
-import '@werk-design/css/werkcontext.dark.css';
-import '@werk-ui/react/styles.css';
+import '@sem-design/css';
+import '@sem-design/css/semcontext.light.css';
+import '@sem-design/css/semcontext.dark.css';
+import '@sem-ui/react/styles.css';
 ```
 
 ### 2. Set Theme Attributes
@@ -41,7 +41,7 @@ Apply `data-theme` and `data-mode` to your root HTML element:
 ```tsx
 export default function RootLayout({ children }: { children: React.Node }) {
   return (
-    <html lang="en" data-theme="werkcontext" data-mode="light">
+    <html lang="en" data-theme="semcontext" data-mode="light">
       <body>{children}</body>
     </html>
   );
@@ -51,12 +51,12 @@ export default function RootLayout({ children }: { children: React.Node }) {
 ### 3. Use Components
 
 ```tsx
-import { Button, Card, Input, Badge } from '@werk-ui/react';
+import { Button, Card, Input, Badge } from '@sem-ui/react';
 
 export function MyPage() {
   return (
     <Card>
-      <h1>Welcome to Werkcontext</h1>
+      <h1>Welcome to Semcontext</h1>
       <Badge variant="primary">New</Badge>
       <Input placeholder="Enter your name" />
       <Button variant="primary">Submit</Button>
@@ -73,7 +73,7 @@ Change themes by updating data attributes:
 
 ```tsx
 function ThemeToggle() {
-  const [theme, setTheme] = useState<'werkcontext' | 'werkPress'>('werkcontext');
+  const [theme, setTheme] = useState<'semcontext' | 'semPress'>('semcontext');
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -83,7 +83,7 @@ function ThemeToggle() {
 
   return (
     <>
-      <button onClick={() => setTheme(t => t === 'werkcontext' ? 'werkPress' : 'werkcontext')}>
+      <button onClick={() => setTheme(t => t === 'semcontext' ? 'semPress' : 'semcontext')}>
         Switch Theme
       </button>
       <button onClick={() => setMode(m => m === 'light' ? 'dark' : 'light')}>
@@ -99,7 +99,7 @@ function ThemeToggle() {
 Adjust component spacing with `data-density`:
 
 ```tsx
-<html data-theme="werkcontext" data-mode="light" data-density="compact">
+<html data-theme="semcontext" data-mode="light" data-density="compact">
 ```
 
 Options:
@@ -111,7 +111,7 @@ Options:
 ```tsx
 import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'werkcontext' | 'werkPress';
+type Theme = 'semcontext' | 'semPress';
 type Mode = 'light' | 'dark';
 type Density = 'comfortable' | 'compact';
 
@@ -128,7 +128,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() =>
-    (localStorage.getItem('theme') as Theme) || 'werkcontext'
+    (localStorage.getItem('theme') as Theme) || 'semcontext'
   );
   const [mode, setMode] = useState<Mode>(() =>
     (localStorage.getItem('mode') as Mode) || 'light'
@@ -207,7 +207,7 @@ Components map variants to semantic tokens:
 - `error` → `color.semantic.error`
 
 ### Theme Independence
-Component code never branches on theme. Differences between Werkcontext and WerkPress are achieved purely through CSS variable values.
+Component code never branches on theme. Differences between Semcontext and SemPress are achieved purely through CSS variable values.
 
 ## Development
 

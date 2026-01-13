@@ -11,6 +11,15 @@ importers:
       '@changesets/cli':
         specifier: ^2.27.1
         version: 2.29.8
+      '@sem-design/css':
+        specifier: file:../sem-design/packages/css
+        version: file:../sem-design/packages/css
+      '@sem-design/tailwind-preset':
+        specifier: file:../sem-design/packages/tailwind-preset
+        version: file:../sem-design/packages/tailwind-preset(tailwindcss@3.4.19)
+      '@sem-design/tokens':
+        specifier: file:../sem-design/packages/tokens
+        version: file:../sem-design/packages/tokens
       '@storybook/addon-essentials':
         specifier: ^8.6.14
         version: 8.6.14(@types/react@18.3.27)(storybook@8.6.15)
@@ -35,15 +44,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6.21.0
         version: 6.21.0(eslint@8.57.1)(typescript@5.9.3)
-      '@werk-design/css':
-        specifier: file:../werk-design/packages/css
-        version: file:../werk-design/packages/css
-      '@werk-design/tailwind-preset':
-        specifier: file:../werk-design/packages/tailwind-preset
-        version: file:../werk-design/packages/tailwind-preset(tailwindcss@3.4.19)
-      '@werk-design/tokens':
-        specifier: file:../werk-design/packages/tokens
-        version: file:../werk-design/packages/tokens
       eslint:
         specifier: ^8.56.0
         version: 8.57.1
@@ -74,7 +74,7 @@ importers:
 
   packages/auth:
     dependencies:
-      '@werk-ui/react':
+      '@sem-ui/react':
         specifier: file:../react
         version: file:packages/react(@types/react-dom@18.3.7)(@types/react@18.3.27)(react-dom@18.3.1)(react@18.3.1)
     devDependencies:
@@ -7514,27 +7514,27 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  file:../werk-design/packages/css:
-    resolution: {directory: ../werk-design/packages/css, type: directory}
-    name: '@werk-design/css'
+  file:../sem-design/packages/css:
+    resolution: {directory: ../sem-design/packages/css, type: directory}
+    name: '@sem-design/css'
     dependencies:
-      '@werk-design/tokens': file:../werk-design/packages/tokens
+      '@sem-design/tokens': file:../sem-design/packages/tokens
     dev: true
 
-  file:../werk-design/packages/tailwind-preset(tailwindcss@3.4.19):
-    resolution: {directory: ../werk-design/packages/tailwind-preset, type: directory}
-    id: file:../werk-design/packages/tailwind-preset
-    name: '@werk-design/tailwind-preset'
+  file:../sem-design/packages/tailwind-preset(tailwindcss@3.4.19):
+    resolution: {directory: ../sem-design/packages/tailwind-preset, type: directory}
+    id: file:../sem-design/packages/tailwind-preset
+    name: '@sem-design/tailwind-preset'
     peerDependencies:
       tailwindcss: ^3.0.0
     dependencies:
-      '@werk-design/tokens': file:../werk-design/packages/tokens
+      '@sem-design/tokens': file:../sem-design/packages/tokens
       tailwindcss: 3.4.19
     dev: true
 
-  file:../werk-design/packages/tokens:
-    resolution: {directory: ../werk-design/packages/tokens, type: directory}
-    name: '@werk-design/tokens'
+  file:../sem-design/packages/tokens:
+    resolution: {directory: ../sem-design/packages/tokens, type: directory}
+    name: '@sem-design/tokens'
     hasBin: true
     dependencies:
       style-dictionary: 4.4.0
@@ -7543,7 +7543,7 @@ packages:
   file:packages/react(@types/react-dom@18.3.7)(@types/react@18.3.27)(react-dom@18.3.1)(react@18.3.1):
     resolution: {directory: packages/react, type: directory}
     id: file:packages/react
-    name: '@werk-ui/react'
+    name: '@sem-ui/react'
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       react-dom: ^18.0.0 || ^19.0.0

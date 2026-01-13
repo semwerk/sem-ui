@@ -33,7 +33,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 
 const defaultConfig: AuthConfig = {
   apiUrl: "",
-  tokenStorageKey: "werkcontext_token",
+  tokenStorageKey: "semcontext_token",
   autoRefresh: true,
 };
 

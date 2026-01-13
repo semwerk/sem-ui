@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Button, Input } from "@werk-ui/react";
+import { Button, Input } from "@sem-ui/react";
 import { useSignup } from "../hooks/useSignup";
 
 interface SignupFormProps {

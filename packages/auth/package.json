@@ -1,7 +1,7 @@
 {
-  "name": "@werk-ui/auth",
+  "name": "@sem-ui/auth",
   "version": "0.1.0",
-  "description": "Authentication components and hooks for Werkcontext applications",
+  "description": "Authentication components and hooks for Semcontext applications",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -30,7 +30,7 @@
     "react-router-dom": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
-    "@werk-ui/react": "file:../react"
+    "@sem-ui/react": "^0.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",

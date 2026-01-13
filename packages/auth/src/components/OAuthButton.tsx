@@ -1,4 +1,4 @@
-import { Button } from "@werk-ui/react";
+import { Button } from "@sem-ui/react";
 import { useAuthContext } from "../providers/AuthProvider";
 import type { OAuthProviderName } from "../types";
 

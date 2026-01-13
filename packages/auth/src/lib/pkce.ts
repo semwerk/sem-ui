@@ -5,7 +5,7 @@
 
 import type { OAuthFlowState, OAuthProviderName } from "../types";
 
-const OAUTH_STATE_KEY = "werkcontext_oauth_state";
+const OAUTH_STATE_KEY = "semcontext_oauth_state";
 
 /**
  * Generates a cryptographically random code verifier

@@ -2,8 +2,8 @@
  * Token storage abstraction for browser environments
  */
 
-const DEFAULT_TOKEN_KEY = "werkcontext_token";
-const DEFAULT_REFRESH_TOKEN_KEY = "werkcontext_refresh_token";
+const DEFAULT_TOKEN_KEY = "semcontext_token";
+const DEFAULT_REFRESH_TOKEN_KEY = "semcontext_refresh_token";
 
 export interface TokenStorage {
   getToken(): string | null;

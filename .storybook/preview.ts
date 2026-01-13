@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import '@werk-design/css';
+import '@sem-design/css';
 
 const preview: Preview = {
   parameters: {

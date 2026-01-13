@@ -1,6 +1,6 @@
-# @werk-ui/auth
+# @sem-ui/auth
 
-Authentication package for Werkstudio applications. Provides login, signup, and OAuth flows for your users.
+Authentication package for Semstudio applications. Provides login, signup, and OAuth flows for your users.
 
 ## Use Cases
 
@@ -9,7 +9,7 @@ Authentication package for Werkstudio applications. Provides login, signup, and 
 Allow existing users to access their accounts using email/password or social login.
 
 ```tsx
-import { AuthProvider, LoginForm, OAuthProviderButtons } from "@werk-ui/auth"
+import { AuthProvider, LoginForm, OAuthProviderButtons } from "@sem-ui/auth"
 
 function LoginPage() {
   return (
@@ -34,7 +34,7 @@ function LoginPage() {
 Let new users create accounts with email/password or connect via OAuth.
 
 ```tsx
-import { SignupForm, OAuthProviderButtons } from "@werk-ui/auth"
+import { SignupForm, OAuthProviderButtons } from "@sem-ui/auth"
 
 function SignupPage() {
   return (
@@ -57,7 +57,7 @@ function SignupPage() {
 Restrict access to authenticated users only.
 
 ```tsx
-import { ProtectedRoute } from "@werk-ui/auth"
+import { ProtectedRoute } from "@sem-ui/auth"
 
 function App() {
   return (
@@ -80,7 +80,7 @@ function App() {
 Redirect authenticated users away from login/signup pages.
 
 ```tsx
-import { PublicOnlyRoute } from "@werk-ui/auth"
+import { PublicOnlyRoute } from "@sem-ui/auth"
 
 function App() {
   return (
@@ -101,7 +101,7 @@ function App() {
 Display user info and provide sign-out functionality.
 
 ```tsx
-import { useAuth, useLogout } from "@werk-ui/auth"
+import { useAuth, useLogout } from "@sem-ui/auth"
 
 function UserMenu() {
   const { user } = useAuth()
@@ -132,7 +132,7 @@ function UserMenu() {
 Process OAuth redirects after social login.
 
 ```tsx
-import { useOAuthCallback } from "@werk-ui/auth"
+import { useOAuthCallback } from "@sem-ui/auth"
 
 function OAuthCallbackPage() {
   const { isLoading, error, returnPath } = useOAuthCallback()
@@ -161,7 +161,7 @@ function OAuthCallbackPage() {
 Show different content for logged-in vs. anonymous users.
 
 ```tsx
-import { useAuth } from "@werk-ui/auth"
+import { useAuth } from "@sem-ui/auth"
 
 function Header() {
   const { isAuthenticated, isLoading } = useAuth()
@@ -189,7 +189,7 @@ function Header() {
 Get the auth token to make authenticated API requests.
 
 ```tsx
-import { useAuth } from "@werk-ui/auth"
+import { useAuth } from "@sem-ui/auth"
 
 function useAuthenticatedFetch() {
   const { getToken } = useAuth()
@@ -214,11 +214,11 @@ function useAuthenticatedFetch() {
 
 ```tsx
 // main.tsx
-import { AuthProvider } from "@werk-ui/auth"
+import { AuthProvider } from "@sem-ui/auth"
 
 const authConfig = {
   apiUrl: import.meta.env.VITE_API_URL,
-  tokenStorageKey: "werkcontext_token",
+  tokenStorageKey: "semcontext_token",
 }
 
 createRoot(document.getElementById("root")).render(
