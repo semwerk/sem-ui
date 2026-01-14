@@ -28,7 +28,7 @@ jobs:
           scope: '@semwerk'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
