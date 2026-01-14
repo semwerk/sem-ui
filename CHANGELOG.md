@@ -8,13 +8,13 @@ All notable changes to this project will be documented in this file.
 
 #### Phase 1: Chat Components Extraction
 
-- Extracted `ChatMessage` component to `@sem-ui/react` for reuse across semstudio and semPress
+- Extracted `ChatMessage` component to `@semwerk/react` for reuse across semstudio and sempress
   - Location: `packages/react/src/components/chat/ChatMessage/`
   - Supports user and assistant messages with citation rendering
   - Props: `message`, `className`, `renderCitation`
   - TypeScript types: `ChatMessageProps`, `Citation`
 
-- Extracted `CitationCard` component to `@sem-ui/react`
+- Extracted `CitationCard` component to `@semwerk/react`
   - Location: `packages/react/src/components/chat/CitationCard/`
   - Displays citations with document and code coordinate support
   - Props: `citation`, `className`
@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 
 #### Phase 2: Data Display Components
 
-- Added `StatCard` component to `@sem-ui/react`
+- Added `StatCard` component to `@semwerk/react`
   - Location: `packages/react/src/components/data-display/StatCard/`
   - Generic, reusable stat display component used in Dashboard and Library pages
   - Props: `title`, `value`, `description`, `icon`, `trend`, `className`
@@ -31,11 +31,11 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Updated `@sem-ui/react` exports in `packages/react/src/index.ts`:
+- Updated `@semwerk/react` exports in `packages/react/src/index.ts`:
   - Added `chat` component exports (ChatMessage, CitationCard)
   - Added `data-display` component exports (StatCard)
 
-- Added `lucide-react` to `@sem-ui/react` dependencies for icon support
+- Added `lucide-react` to `@semwerk/react` dependencies for icon support
 
 - Updated `tsup` build configuration:
   - Added `lucide-react` to external dependencies list
@@ -58,11 +58,11 @@ After migration, use these imports in any package:
 
 ```typescript
 // Chat components
-import { ChatMessage, CitationCard } from '@sem-ui/react'
+import { ChatMessage, CitationCard } from '@semwerk/react'
 
 // Data display
-import { StatCard } from '@sem-ui/react'
+import { StatCard } from '@semwerk/react'
 
 // Existing components
-import { Button, Card, Badge, Input } from '@sem-ui/react'
+import { Button, Card, Badge, Input } from '@semwerk/react'
 ```

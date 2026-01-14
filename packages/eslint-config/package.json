@@ -1,7 +1,10 @@
 {
-  "name": "@sem-ui/eslint-config",
+  "name": "@semwerk/eslint-config",
   "version": "0.1.0",
   "description": "ESLint configuration for Semcontext and SemPress",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./index.js",
   "exports": {

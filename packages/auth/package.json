@@ -1,7 +1,10 @@
 {
-  "name": "@sem-ui/auth",
+  "name": "@semwerk/auth",
   "version": "0.1.0",
   "description": "Authentication components and hooks for Semcontext applications",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -30,7 +33,7 @@
     "react-router-dom": "^6.0.0 || ^7.0.0"
   },
   "dependencies": {
-    "@sem-ui/react": "^0.1.0"
+    "@semwerk/react": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.2.0",

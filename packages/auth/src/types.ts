@@ -1,5 +1,5 @@
 /**
- * Authentication types for @sem-ui/auth
+ * Authentication types for @semwerk/auth
  */
 
 /** User information from authentication */

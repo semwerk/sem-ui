@@ -1,7 +1,10 @@
 {
-  "name": "@sem-ui/icons",
+  "name": "@semwerk/icons",
   "version": "0.1.0",
   "description": "Icon components for Semcontext and SemPress",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

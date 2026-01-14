@@ -4,20 +4,20 @@ React component library for Semcontext and SemPress, built on design tokens from
 
 ## Overview
 
-Semcontext UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@sem-design/css` - no hardcoded colors, spacing, or other design values in component code.
+Semcontext UI provides accessible, themeable React components that consume design tokens via CSS variables. All visual styling comes from `@semwerk/css` - no hardcoded colors, spacing, or other design values in component code.
 
 ## Packages
 
 | Package | Description |
 |---------|-------------|
-| `@sem-ui/react` | Main component library |
-| `@sem-ui/icons` | Icon wrapper (optional) |
-| `@sem-ui/eslint-config` | Shared ESLint configuration |
+| `@semwerk/react` | Main component library |
+| `@semwerk/icons` | Icon wrapper (optional) |
+| `@semwerk/eslint-config` | Shared ESLint configuration |
 
 ## Installation
 
 ```bash
-pnpm add @sem-ui/react @sem-design/css
+pnpm add @semwerk/react @semwerk/css
 ```
 
 ## Quick Start
@@ -28,10 +28,10 @@ In your app's entry point or root layout:
 
 ```tsx
 // app/layout.tsx or main.tsx
-import '@sem-design/css';
-import '@sem-design/css/semcontext.light.css';
-import '@sem-design/css/semcontext.dark.css';
-import '@sem-ui/react/styles.css';
+import '@semwerk/css';
+import '@semwerk/css/semcontext.light.css';
+import '@semwerk/css/semcontext.dark.css';
+import '@semwerk/react/styles.css';
 ```
 
 ### 2. Set Theme Attributes
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.Node }) {
 ### 3. Use Components
 
 ```tsx
-import { Button, Card, Input, Badge } from '@sem-ui/react';
+import { Button, Card, Input, Badge } from '@semwerk/react';
 
 export function MyPage() {
   return (
@@ -73,7 +73,7 @@ Change themes by updating data attributes:
 
 ```tsx
 function ThemeToggle() {
-  const [theme, setTheme] = useState<'semcontext' | 'semPress'>('semcontext');
+  const [theme, setTheme] = useState<'semcontext' | 'sempress'>('semcontext');
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
@@ -83,7 +83,7 @@ function ThemeToggle() {
 
   return (
     <>
-      <button onClick={() => setTheme(t => t === 'semcontext' ? 'semPress' : 'semcontext')}>
+      <button onClick={() => setTheme(t => t === 'semcontext' ? 'sempress' : 'semcontext')}>
         Switch Theme
       </button>
       <button onClick={() => setMode(m => m === 'light' ? 'dark' : 'light')}>
@@ -111,7 +111,7 @@ Options:
 ```tsx
 import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'semcontext' | 'semPress';
+type Theme = 'semcontext' | 'sempress';
 type Mode = 'light' | 'dark';
 type Density = 'comfortable' | 'compact';
 

@@ -8,7 +8,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-export type Theme = 'semcontext' | 'semPress' | string;
+export type Theme = 'semcontext' | 'sempress' | string;
 export type Mode = 'light' | 'dark';
 export type Density = 'comfortable' | 'compact';
 

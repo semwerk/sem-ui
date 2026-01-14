@@ -191,8 +191,8 @@ All Semcontext UI components expose stable `data-nx` and `data-nx-*` attributes 
 ### Theme-Specific Overrides
 
 ```css
-/* Different button style for semPress theme */
-[data-theme="semPress"] [data-nx="Button"][data-nx-variant="primary"] {
+/* Different button style for sempress theme */
+[data-theme="sempress"] [data-nx="Button"][data-nx-variant="primary"] {
   border-radius: var(--radius-full);
 }
 ```

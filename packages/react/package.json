@@ -1,7 +1,10 @@
 {
-  "name": "@sem-ui/react",
+  "name": "@semwerk/react",
   "version": "0.1.0",
   "description": "React component library for Semcontext and SemPress",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",

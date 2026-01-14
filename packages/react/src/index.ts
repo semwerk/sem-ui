@@ -1,7 +1,7 @@
 /**
  * Semcontext UI - React Component Library
  *
- * All components use design tokens from @sem-design/css
+ * All components use design tokens from @semwerk/css
  */
 
 // Import global styles

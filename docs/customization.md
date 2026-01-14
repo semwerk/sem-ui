@@ -32,9 +32,9 @@ Override design tokens to customize all components at once:
 
 ```tsx
 // app.tsx
-import '@sem-design/css/dist/layers.css';
-import '@sem-design/css/dist/base.light.css';
-import '@sem-design/css/dist/semcontext.light.css';
+import '@semwerk/css/dist/layers.css';
+import '@semwerk/css/dist/base.light.css';
+import '@semwerk/css/dist/semcontext.light.css';
 import './brand.css'; // Your overrides
 
 <Button variant="primary">
@@ -48,7 +48,7 @@ import './brand.css'; // Your overrides
 - Preserves accessibility
 - Easy to update
 
-**See:** [@sem-design docs/theming.md](../../sem-design/docs/theming.md)
+**See:** [@semwerk docs/theming.md](../../sem-design/docs/theming.md)
 
 ## 2. Theme Extension
 
@@ -56,7 +56,7 @@ Create entirely custom themes:
 
 ```bash
 # Generate scaffold
-npx @sem-design/tokens scaffold-overrides \
+npx @semwerk/tokens scaffold-overrides \
   --theme semcontext \
   --mode light \
   --out ./custom-theme.css
@@ -64,7 +64,7 @@ npx @sem-design/tokens scaffold-overrides \
 
 Edit the generated file to match your brand.
 
-**See:** [@sem-design docs/theming.md](../../sem-design/docs/theming.md)
+**See:** [@semwerk docs/theming.md](../../sem-design/docs/theming.md)
 
 ## 3. Component Slot Classes
 
@@ -160,7 +160,7 @@ function CustomCard({ title, action, children }) {
 Pre-built patterns for common use cases (coming soon):
 
 ```tsx
-import { Toolbar, PropertyGrid, DocCallout } from '@sem-ui/recipes';
+import { Toolbar, PropertyGrid, DocCallout } from '@semwerk/recipes';
 
 <Toolbar>
   <Toolbar.Section>
@@ -308,7 +308,7 @@ When customizing:
 
 ### Upgrading Components
 
-When upgrading `@sem-ui/react`:
+When upgrading `@semwerk/react`:
 
 1. Check CHANGELOG for breaking changes
 2. Verify `data-nx` attributes are still present
@@ -350,7 +350,7 @@ Yes, but prefer token overrides:
 
 ### Can I create my own theme from scratch?
 
-Yes! See [@sem-design theming guide](../../sem-design/docs/theming.md).
+Yes! See [@semwerk theming guide](../../sem-design/docs/theming.md).
 
 ### Will data attributes change?
 
@@ -364,5 +364,5 @@ Component styles use CSS Modules and are scoped. Global styles only set defaults
 
 - [Theme Provider](./theming.md) - Runtime theme switching
 - [Slots & Selectors](./slots-and-selectors.md) - Complete data attribute reference
-- [@sem-design Theming](../../sem-design/docs/theming.md) - Token customization
-- [@sem-design Overrides](../../sem-design/docs/overrides.md) - Override patterns
+- [@semwerk Theming](../../sem-design/docs/theming.md) - Token customization
+- [@semwerk Overrides](../../sem-design/docs/overrides.md) - Override patterns

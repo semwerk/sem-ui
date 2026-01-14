@@ -11,7 +11,7 @@ export default defineConfig({
     "react",
     "react-dom",
     "react-router-dom",
-    "@sem-ui/react",
+    "@semwerk/react",
     /^@radix-ui\//,
   ],
 });
